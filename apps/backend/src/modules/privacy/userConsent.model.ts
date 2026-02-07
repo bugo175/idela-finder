@@ -3,7 +3,7 @@ import { sequelize } from '../../config/database';
 
 interface UserConsentAttributes {
   id: string;
-  userId?: string;
+  userId: string;
   consentType: string;
   isGranted: boolean;
   grantedAt: Date;
@@ -12,7 +12,7 @@ interface UserConsentAttributes {
   userAgent?: string;
 }
 
-interface UserConsentCreationAttributes extends Optional<UserConsentAttributes, 'id' | 'userId' | 'revokedAt' | 'ipAddress' | 'userAgent'> {}
+interface UserConsentCreationAttributes extends Optional<UserConsentAttributes, 'id' | 'revokedAt' | 'ipAddress' | 'userAgent'> {}
 
 class UserConsent extends Model<UserConsentAttributes, UserConsentCreationAttributes> implements UserConsentAttributes {
   public id!: string;
@@ -28,6 +28,7 @@ class UserConsent extends Model<UserConsentAttributes, UserConsentCreationAttrib
 UserConsent.init(
   {
     id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
+    userId: { type: DataTypes.UUID, allowNull: false, field: 'user_id' },
     consentType: { type: DataTypes.STRING(50), allowNull: false },
     isGranted: { type: DataTypes.BOOLEAN, allowNull: false },
     grantedAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
