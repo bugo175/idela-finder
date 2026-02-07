@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from './user.model';
@@ -35,7 +36,9 @@ export async function register(input: RegisterInput) {
   }
 
   const passwordHash = await bcrypt.hash(input.password, 12);
+  const userId = randomUUID();
   const user = await User.create({
+    id: userId,
     email: input.email,
     passwordHash,
     firstName: input.firstName,
