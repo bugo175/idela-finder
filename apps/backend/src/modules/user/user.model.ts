@@ -45,14 +45,17 @@ User.init(
     passwordHash: {
       type: DataTypes.STRING(255),
       allowNull: false,
+      field: 'password_hash',
     },
     firstName: {
       type: DataTypes.STRING(100),
       allowNull: false,
+      field: 'first_name',
     },
     lastName: {
       type: DataTypes.STRING(100),
       allowNull: false,
+      field: 'last_name',
     },
     phone: {
       type: DataTypes.STRING(20),
@@ -61,14 +64,17 @@ User.init(
     preferredLanguage: {
       type: DataTypes.STRING(5),
       defaultValue: 'it',
+      field: 'preferred_language',
     },
     isActive: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
+      field: 'is_active',
     },
     lastLoginAt: {
       type: DataTypes.DATE,
       allowNull: true,
+      field: 'last_login_at',
     },
   },
   {
