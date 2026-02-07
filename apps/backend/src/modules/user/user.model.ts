@@ -16,17 +16,17 @@ interface UserAttributes {
 interface UserCreationAttributes extends Optional<UserAttributes, 'id' | 'phone' | 'isActive' | 'preferredLanguage' | 'lastLoginAt'> {}
 
 class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
-  public id!: string;
-  public email!: string;
-  public passwordHash!: string;
-  public firstName!: string;
-  public lastName!: string;
-  public phone?: string;
-  public preferredLanguage!: string;
-  public isActive!: boolean;
-  public lastLoginAt?: Date;
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  declare id: string;
+  declare email: string;
+  declare passwordHash: string;
+  declare firstName: string;
+  declare lastName: string;
+  declare phone: string | undefined;
+  declare preferredLanguage: string;
+  declare isActive: boolean;
+  declare lastLoginAt: Date | undefined;
+  declare readonly createdAt: Date;
+  declare readonly updatedAt: Date;
 }
 
 User.init(

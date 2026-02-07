@@ -15,14 +15,14 @@ interface UserConsentAttributes {
 interface UserConsentCreationAttributes extends Optional<UserConsentAttributes, 'id' | 'revokedAt' | 'ipAddress' | 'userAgent'> {}
 
 class UserConsent extends Model<UserConsentAttributes, UserConsentCreationAttributes> implements UserConsentAttributes {
-  public id!: string;
-  public userId!: string;
-  public consentType!: string;
-  public isGranted!: boolean;
-  public grantedAt!: Date;
-  public revokedAt?: Date;
-  public ipAddress?: string;
-  public userAgent?: string;
+  declare id: string;
+  declare userId: string;
+  declare consentType: string;
+  declare isGranted: boolean;
+  declare grantedAt: Date;
+  declare revokedAt: Date | undefined;
+  declare ipAddress: string | undefined;
+  declare userAgent: string | undefined;
 }
 
 UserConsent.init(
