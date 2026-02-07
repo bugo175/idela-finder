@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Redis dump
+dump.rdb
+
+# TypeScript
+*.tsbuildinfo

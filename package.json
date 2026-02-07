@@ -1,0 +1,14 @@
+{
+  "name": "idealfinder",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/mobile",
+    "apps/backend"
+  ],
+  "scripts": {
+    "mobile": "npm run start --workspace=apps/mobile",
+    "backend": "npm run dev --workspace=apps/backend",
+    "backend:prod": "npm run start --workspace=apps/backend"
+  }
+}
