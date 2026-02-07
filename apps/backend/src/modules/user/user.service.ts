@@ -51,14 +51,14 @@ export async function register(input: RegisterInput) {
   for (const type of consentTypes) {
     const isGranted = (consents as any)[type] ?? false;
     await UserConsent.create({
-      userId: user.id,
+      userId: userId,
       consentType: type,
       isGranted,
       grantedAt: isGranted ? new Date() : new Date(),
     });
   }
 
-  const token = generateToken(user.id);
+  const token = generateToken(userId);
   return { token, user: sanitizeUser(user) };
 }
 
