@@ -68,10 +68,6 @@ export async function login(email: string, password: string) {
     throw { status: 401, message: 'Credenziali non valide' };
   }
 
-  if (!user.isActive) {
-    throw { status: 403, message: 'Account disattivato' };
-  }
-
   const valid = await bcrypt.compare(password, user.passwordHash);
   if (!valid) {
     throw { status: 401, message: 'Credenziali non valide' };
